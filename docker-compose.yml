@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  api-persons:
+    image: tiagopbarreto/api-persons
+    restart: always
+    build: ./API_Persons
+    working_dir: /API_Persons
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - 80:80
+    command: mvn spring-boot:run
+    networks:
+      - tiago-network
+networks:
+  tiago-network:
+    driver: bridge
